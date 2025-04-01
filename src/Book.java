@@ -2,11 +2,13 @@ public class Book {
     private String title;
     private String author;
     private boolean isAvailable;
+    public int pages;
 
-    public Book(String title, String author) {
+    public Book(String title, String author, int pages) {
         this.title = title;
         this.author = author;
         this.isAvailable = true;
+        this.pages = pages;
     }
 
     public String getTitle() {
@@ -21,6 +23,10 @@ public class Book {
         return isAvailable;
     }
 
+    public int getPages() {
+        return pages;
+    }
+
     public void borrowBook() {
         if (isAvailable) {
             isAvailable = false;
@@ -33,5 +39,13 @@ public class Book {
     public void returnBook() {
         isAvailable = true;
         System.out.println(title + " has been returned.");
+    }
+
+    public void describeBook() {
+        System.out.println(
+                "Name: " + getTitle() + "\n" +
+                "Author: " + getAuthor() + "\n" +
+                "Pages: " + getPages() + "\n"
+        );
     }
 }
